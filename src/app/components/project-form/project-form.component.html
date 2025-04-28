@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>ADD AN Project</h1>
+    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label for="name" class="form-label">Project's name</label>
+            <input 
+            type="text" 
+            class="form-control" 
+            id="name"
+            formControlName="name"
+            required
+            placeholder="Enter the name of the Project">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Project Description</label>
+            <input 
+            type="text" 
+            class="form-control" 
+            id="description"
+            formControlName="description"
+            required
+            placeholder="Enter the description of the Project">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

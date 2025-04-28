@@ -1,0 +1,55 @@
+
+<div class="container d-flex flex-row">
+    <div class="m-4">
+        <div class="container d-flex gap-5" *ngIf="!isEditing">
+            <app-project-form></app-project-form>
+            <div>
+                <table class="table table-sm m-4">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col" style="color: blue;">Edit</th>
+                            <th scope="col" style="color: red;">Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let project of projects; let i = index">
+                            <th scope="row"> {{ i + 1 }}</th>
+                            <td>{{ project.name }}</td>
+                            <td>{{ project.description }}</td>
+                            <td><i class="bi bi-pencil-square" style="color: blue;" (click)="changeToEditMode(project)"></i></td>
+                            <td><i class="bi bi-trash3" style="color: red;" (click)="deleteProject(project.id)"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+        <div class="container" *ngIf="isEditing">
+            <div class="mb-3">
+                <label for="name" class="form-label">Project name</label>
+                <input 
+                type="text" 
+                class="form-control" 
+                id="name"
+                [(ngModel)]="partialProject.name"
+                required>
+            </div>
+            <div class="mb-3">
+                <label for="surname" class="form-label">Project Description</label>
+                <input 
+                type="text" 
+                class="form-control" 
+                id="surname"
+                [(ngModel)]="partialProject.description"
+                required>
+            </div>
+            <div class="container d-flex gap-5">
+                <button type="button" class="btn btn-success" (click)="updateProject()">Update Project</button>
+                <button type="button" class="btn btn-secondary" (click)="changeToNormaMode()">Go Back</button>
+            </div>
+        </div>
+    </div>
+</div>

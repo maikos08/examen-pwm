@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>ADD AN Employee</h1>
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label for="employee" class="form-label">Employee</label>
+            <input 
+            type="text" 
+            class="form-control" 
+            id="employee"
+            formControlName="employee"
+            required
+            placeholder="Enter the name of the employee">
+        </div>
+        <div class="mb-3">
+            <label for="project" class="form-label">Project</label>
+            <input 
+            type="text" 
+            class="form-control" 
+            id="project"
+            formControlName="project"
+            required
+            placeholder="Enter the task the project">
+        </div>
+        <div class="mb-3">
+            <label for="task" class="form-label">Task name</label>
+            <input 
+            type="text" 
+            class="form-control" 
+            id="task"
+            formControlName="task"
+            required
+            placeholder="Enter the task's name">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
